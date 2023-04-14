@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   grid-area: header;
+  
   width: 100%;
   height: 11.6rem;
   display: flex;
@@ -11,6 +12,7 @@ export const Container = styled.header`
   border-bottom-style: solid;
   border-bottom-color: ${({ theme })=> theme.COLORS.BACKGROUND_700};
   padding: 0 8rem;
+  font-size: 1.4rem;
 
   > h2 {
     color: ${({ theme })=> theme.COLORS.PRIMARY_COLOR};
@@ -27,7 +29,7 @@ export const Profile = styled.div`
     display: flex;
     flex-direction: column;
     align-items: end;
-    font-size: 1.4rem;
+    /* font-size: 1.4rem; */
 
     a {
       font-weight: 400;
@@ -40,4 +42,15 @@ export const Profile = styled.div`
     height: 6.4rem;
     border-radius: 50%;
   }
+`;
+
+export const Search = styled.div`
+  /* max-width: 63rem;
+  flex-grow: 1; */
+  width: 50%;
+  /* font-size: 1.4rem; */
+
+  /* > input {
+    font-size: 1.4rem;
+  } */
 `;
