@@ -17,6 +17,7 @@ export default createGlobalStyle`
 
     font-size: 1.6rem;
     -webkit-font-smoothing: antialiased;
+    /* padding: 0 8rem; */
   }
 
   body, input, button, textarea {
