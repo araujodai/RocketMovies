@@ -9,11 +9,11 @@ export default {
     WHITE_200: "#E5E5E5",
 
     PRIMARY_COLOR: "#FF859B",
+    SECONDARY_COLOR: "#282124",
 
     GRAY_100: "#999591",
     GRAY_200: "#948F99",
     GRAY_300: "#666360",
     GRAY_400: "#312E38",
-
   }
 }
