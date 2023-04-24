@@ -18,6 +18,24 @@ export default createGlobalStyle`
     font-size: 1.6rem;
     -webkit-font-smoothing: antialiased;
     /* padding: 0 8rem; */
+
+    overflow: overlay;
+
+    ::-webkit-scrollbar {
+    width: 0.8rem;
+    background-color: transparent;
+    opacity: 0.8;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 0.8rem;
+      background-color: transparent;
+      border: 1px solid lightgray;
+    }
+
+    ::-webkit-scrollbar-button {
+      background-color: transparent;
+    }
   }
 
   body, input, button, textarea {
