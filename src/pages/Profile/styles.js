@@ -28,11 +28,19 @@ export const Container = styled.div`
 
 export const Form = styled.form`
   max-width: 34rem;
-  border: 1px solid red;
   margin: -9.3rem auto 0;
+  padding-bottom: 3rem;
 
   > div {
     margin-bottom: 0.8rem;
+
+    input {
+      font-size: 1.6rem;
+
+      ::placeholder {
+        font-size: 1.4rem;
+      }
+    }
   }
 
   > div:first-child {
@@ -41,6 +49,10 @@ export const Form = styled.form`
 
   > div:nth-child(4) {
     margin-top: 2.4rem;
+  }
+
+  > button {
+    margin-top: 1.8rem;
   }
 `;
 
