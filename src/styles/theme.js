@@ -7,6 +7,7 @@ export default {
     
     WHITE_100: "#F4EDE8",
     WHITE_200: "#E5E5E5",
+    WHITE_300: "#CAC4CF",
 
     PRIMARY_COLOR: "#FF859B",
     SECONDARY_COLOR: "#282124",

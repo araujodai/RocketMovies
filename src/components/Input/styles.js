@@ -6,6 +6,7 @@ export const Container = styled.div`
   /* flex-wrap: wrap; */
   align-items: center;
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
+  color: ${({ theme }) => theme.COLORS.GRAY_200};
 
   border-radius: 1rem;
 
