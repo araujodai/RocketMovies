@@ -21,22 +21,49 @@ export const Container = styled.div`
     justify-self: start;
     margin-top: 4rem;
   }
+
+  > main {
+    margin-top: 2.4rem;
+  }
 `;
 
 export const Form = styled.form`
-  > div.teste {
-    display: flex;
-    gap: 4rem;
+  > h1 {
+    margin-bottom: 4rem;
   }
 
-  input {
-    font-size: 1.6rem;
+  > div {
+    display: flex;
+    gap: 4rem;
+
+    input {
+      font-size: 1.6rem;
+      width: 100%;
+    }
   }
 `;
 
-export const TextArea = styled.textarea``;
+export const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-bottom: 4rem;
 
-export const Section = styled.section``;
+  > h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: ${({ theme }) => theme.COLORS.GRAY_100};
+  }
+
+  > .tags {
+    display: flex;
+    gap: 2.4rem;
+    flex-wrap: wrap;
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+    padding: 1.6rem;
+    border-radius: 0.8rem;
+  }
+`;
 
 export const ButtonDelete = styled(Button)`
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
