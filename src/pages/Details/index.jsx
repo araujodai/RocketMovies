@@ -18,7 +18,7 @@ export function Details() {
         <HeaderContent>
           <div className="title">
             <h1>Interestellar</h1>
-            <Rating />
+            <Rating size={20} />
           </div>
 
           <div className="subtitle">

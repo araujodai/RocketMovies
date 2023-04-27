@@ -2,14 +2,14 @@ import { HiStar, HiOutlineStar } from "react-icons/hi";
 
 import { Container } from "./styles";
 
-export function Rating() {
+export function Rating({ size }) {
   return (
     <Container>
-      <HiStar size={20} />
-      <HiStar size={20} />
-      <HiStar size={20} />
-      <HiStar size={20} />
-      <HiOutlineStar size={20} />
+      <HiStar size={size} />
+      <HiStar size={size} />
+      <HiStar size={size} />
+      <HiStar size={size} />
+      <HiOutlineStar size={size} />
     </Container>
   );
 };
