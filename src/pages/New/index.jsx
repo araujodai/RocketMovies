@@ -35,11 +35,6 @@ export function New() {
             <Section>
               <h2>Marcadores</h2>
               <div className="tags">
-                <MovieItem value="slasher" />
-                <MovieItem value="sci-fi" />
-                <MovieItem value="sci-fi" />
-                <MovieItem value="sci-fi" />
-                <MovieItem value="sci-fi" />
                 <MovieItem value="sci-fi" />
                 <MovieItem isNew placeholder="Novo marcador" />
               </div>

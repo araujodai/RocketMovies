@@ -5,90 +5,58 @@ export const Container = styled.div`
   height: 100vh;
 
   display: grid;
-  grid-template-rows: 11.6rem 6.1rem auto;
+  grid-template-rows: 11.6rem auto;
   grid-template-areas: 
   "header"
-  "button"
-  "content";
-  padding-bottom: 4rem;
-
-  > button {
-    grid-area: button;
-    justify-self: start;
-    margin: 4rem auto 0 7rem;
-  }
+  "main";
 
   > main {
-    margin-top: 2.4rem;
+    grid-area: main;
 
-    /* div:first-child {
+    display: grid;
+    grid-template-rows: 4.8rem auto;
+    grid-template-columns: auto minmax(33rem, 113.7rem) auto;
+    grid-template-areas: 
+    ". TitleWrapper ."
+    ". ContentWrapper .";
+
+    overflow: hidden;
+    padding: 4.7rem 0 4rem 0;
+
+
+    > div:nth-child(2) {
+      margin-top: 3.7rem;
       display: flex;
-      align-items: center;
-      margin-bottom: 2.4rem;
-      gap: 1.9rem;
-
-      background-color: red;;
-
-      h1 {
-        font-size: 3.6rem;
-      }
+      flex-direction: column;
+      gap: 2.4rem;
     }
-
-    div:nth-child(2) {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-
-      background: lightblue;
-
-      > img {
-        width: 16px;
-        border-radius: 50%;
-      }
-
-      > svg {
-        color: ${({ theme }) => theme.COLORS.PRIMARY_COLOR};
-      }
-    }
-
-    > p {
-      margin-top: 4rem;
-      text-align: justify;
-    } */
   }
 `;
 
-export const HeaderContent = styled.div`
+export const TitleWrapper = styled.div`
+  grid-area: TitleWrapper;
+
   display: flex;
-  flex-direction: column;
-  gap: 2.4rem;
+  align-items: center;
+  justify-content: space-between;
 
-  > div {
-    display: flex;
-    align-items: center;
-  }
-
-  .title {
-    gap: 1.9rem;
-  }
-
-  .subtitle {
-    
-    
-    img {
-      width: 1.6rem;
-      border-radius: 3.5rem;
-      border: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_600};
+  h1 {
+      font-size: 3.2rem;
+      font-weight: 400;
     }
-
-    gap: 1rem;
-
-    svg {
-      color: ${({ theme }) => theme.COLORS.PRIMARY_COLOR};
-    }
-  }
 `;
 
-export const Tags = styled.div`
-  padding-block: 4rem;
+export const NewMovie = styled.button`
+  background-color: ${({ theme }) => theme.COLORS.PRIMARY_COLOR};
+  color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+
+  border: none;
+  border-radius: 8px;
+  padding: 1.3rem 3.2rem;
+
+  font-size: 1.6rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 `;
