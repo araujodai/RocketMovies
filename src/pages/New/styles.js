@@ -6,24 +6,32 @@ export const Container = styled.div`
   width: 100%;
   height: 100vh;
 
-  padding-bottom: 2rem;
-
   display: grid;
-  grid-template-rows: 11.6rem 6.1rem auto;
-  grid-template-columns: auto minmax(33rem, 113.7rem) auto;
+  grid-template-rows: 11.6rem auto;
   grid-template-areas: 
-  "header header header"
-  ". button ."
-  ". main .";
-
-  > button {
-    grid-area: button;
-    justify-self: start;
-    margin-top: 4rem;
-  }
+  "header"
+  "main";
 
   > main {
-    margin-top: 2.4rem;
+    grid-area: main;
+
+    display: grid;
+    grid-template-columns: auto minmax(33rem, 113.7rem) auto;
+    grid-template-areas: 
+    ". TitleWrapper ."
+    ". ContentWrapper .";
+
+    overflow: hidden;
+    padding-block: 4rem;
+
+    > button {
+      grid-area: TitleWrapper;
+      justify-self: start;
+    }
+
+    > div {
+      margin-top: 2.4rem;
+    }
   }
 `;
 
