@@ -7,6 +7,11 @@ export const Container = styled.article`
 
   border-radius: 1.6rem;
   padding: 3.2rem;
+
+  > h1 {
+    font-size: 2.4rem;
+    margin-bottom: 0.8rem;
+  }
   
   > p {
     color: ${({ theme }) => theme.COLORS.GRAY_100};
@@ -29,6 +34,8 @@ export const Container = styled.article`
   > footer {
     overflow: hidden;
     text-overflow: ellipsis;
+
+    padding-block: 0.4rem;
   }
 
 `;
