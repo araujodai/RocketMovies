@@ -15,7 +15,11 @@ export function Details() {
       <Header />
 
       <main>
-        <ButtonText title="Voltar" icon={FiArrowLeft} />
+        <ButtonText
+          to="/"
+          title="Voltar"
+          icon={FiArrowLeft}
+        />
 
         <ContentWrapper>
           <HeaderContent>

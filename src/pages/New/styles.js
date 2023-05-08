@@ -24,7 +24,7 @@ export const Container = styled.div`
     overflow: hidden;
     padding-block: 4rem;
 
-    > button {
+    > a {
       grid-area: TitleWrapper;
       justify-self: start;
     }

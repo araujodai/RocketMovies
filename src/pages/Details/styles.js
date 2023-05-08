@@ -14,7 +14,6 @@ export const Container = styled.div`
     grid-area: main;
 
     display: grid;
-    /* grid-template-rows: 4.8rem auto; */
     grid-template-columns: auto minmax(33rem, 113.7rem) auto;
     grid-template-areas: 
     ". TitleWrapper ."
@@ -23,7 +22,7 @@ export const Container = styled.div`
     overflow: hidden;
     padding-block: 4rem;
 
-    > button {
+    > a {
       grid-area: TitleWrapper;
       justify-self: start;
     }

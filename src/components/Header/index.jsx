@@ -9,9 +9,9 @@ export function Header() {
       <Search>
         <Input type="text" placeholder="Pesquisar pelo título" />
       </Search>
-      <Profile>
+      <Profile to="/profile">
         <div>
-          <strong>Daiane Araújo</strong>
+          <span>Daiane Araújo</span>
           <a href="/">sair</a>
         </div>
         <img

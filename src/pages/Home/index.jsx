@@ -15,7 +15,7 @@ export function Home() {
         <TitleWrapper>
           <h1>Meus filmes</h1>
 
-          <NewMovie>
+          <NewMovie to="/new" >
             <FiPlus size={16} />
             Adicionar filme
           </NewMovie>
