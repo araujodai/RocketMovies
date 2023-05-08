@@ -4,30 +4,45 @@ export const Container = styled.div`
   width: 100%;
   height: 100vh;
 
-  padding-bottom: 4rem;
-
   display: grid;
-  grid-template-rows: 11.6rem 6.1rem auto;
-  grid-template-columns: auto minmax(33rem, 113.7rem) auto;
+  grid-template-rows: 11.6rem auto;
   grid-template-areas: 
-  "header header header"
-  ". button ."
-  ". main .";
+  "header"
+  "main";
 
-  > button {
-    grid-area: button;
-    justify-self: start;
-    margin-top: 4rem;
-  }
+  > main {
+    grid-area: main;
 
-  .description {
-    line-height: 21px;
-    text-align: justify;
+    display: grid;
+    /* grid-template-rows: 4.8rem auto; */
+    grid-template-columns: auto minmax(33rem, 113.7rem) auto;
+    grid-template-areas: 
+    ". TitleWrapper ."
+    ". ContentWrapper .";
+
+    overflow: hidden;
+    padding-block: 4rem;
+
+    > button {
+      grid-area: TitleWrapper;
+      justify-self: start;
+    }
+
+    > div {
+      margin-top: 2.4rem;
+
+      .description {
+        grid-area: ContentWrapper;
+
+        margin-top: 4rem;
+        line-height: 21px;
+        text-align: justify;
+      }
+    }
   }
 `;
 
 export const HeaderContent = styled.div`
-  margin-top: 2.4rem;
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
@@ -58,18 +73,8 @@ export const HeaderContent = styled.div`
   }
 `;
 
-// export const Title = styled.div``;
-
-// export const Subtitle = styled.div``;
-
 export const Tags = styled.div`
-  padding-block: 4rem;
+  padding-top: 4rem;
   line-height: 4.2rem;
-  word-break: break-all;
-  /* word-break: break-word; */
-  
-  /* white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; */
-  
+  word-break: break-all;  
 `;
