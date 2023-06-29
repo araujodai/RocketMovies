@@ -1,8 +1,11 @@
 import { Input } from "../Input";
+import { useAuth } from "../../hooks/auth";
 
 import { Container, Profile, Search } from "./styles";
 
 export function Header() {
+  const { signOut } = useAuth();
+
   return (
     <Container>
       <h2>RocketMovies</h2>
@@ -12,7 +15,7 @@ export function Header() {
       <Profile to="/profile">
         <div>
           <span>Daiane Araújo</span>
-          <a href="/">sair</a>
+          <button type="button" onClick={signOut}>sair</button>
         </div>
         <img
           src="https://github.com/araujodai.png"

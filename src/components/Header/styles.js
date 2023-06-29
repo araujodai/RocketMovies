@@ -35,9 +35,17 @@ export const Profile = styled(Link)`
     color: ${({ theme })=> theme.COLORS.WHITE_100};
     font-weight: 700;
 
-    a {
+    /* a {
       font-weight: 400;
       color: ${({ theme })=> theme.COLORS.GRAY_200};
+    } */
+
+    button {
+      font-weight: 400;
+      color: ${({ theme })=> theme.COLORS.GRAY_200};
+      border: none;
+      background: none;
+      font-size: 1.4rem;
     }
   }
 
