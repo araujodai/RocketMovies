@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 
 import { Header } from "../../components/Header";
@@ -11,6 +12,14 @@ import { Button } from "../../components/Button";
 import { Container, Form, Section, ButtonDelete } from "./styles";
 
 export function New() {
+  const [tags, setTags] = useState([]);
+  const [newTag, setNewTag] = useState("");
+
+  function handleAddTag() {
+    setTags(prevState => [...prevState, newTag]);
+    setNewTag("");
+  };
+
   return (
     <Container>
       <Header />
@@ -36,8 +45,22 @@ export function New() {
             <Section>
               <h2>Marcadores</h2>
               <div className="tags">
-                <MovieItem value="sci-fi" />
-                <MovieItem isNew placeholder="Novo marcador" />
+                {
+                  tags.map((tag, index) => (
+                    <MovieItem 
+                      key={String(index)}
+                      value={tag}
+                      onClick={() => {}}
+                    />
+                  ))
+                }
+                <MovieItem 
+                  isNew 
+                  placeholder="Novo marcador" 
+                  value={newTag}
+                  onChange={e => setNewTag(e.target.value)}
+                  onClick={handleAddTag}
+                />
               </div>
             </Section>
 
