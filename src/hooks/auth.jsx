@@ -20,8 +20,10 @@ function AuthProvider({ children }) {
       setData({ user, token });
 
     } catch (error) {
+
       if (error.response) {
         alert(error.response.data.message);
+
       } else {
         alert("Não foi possível entrar.");
       };
@@ -34,6 +36,28 @@ function AuthProvider({ children }) {
     const user = localStorage.removeItem("@rocketmovies:user");
 
     setData({});
+  };
+
+  async function updateProfile({ user }) {
+
+    try {
+      await api.put("/users", user);
+      localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
+
+      setData({ user, token: data.token });
+      alert("Usuário atualizado com sucesso.");
+
+    } catch(error) {
+
+      if (error.response) {
+        alert(error.response.data.message);
+
+      } else {
+        alert("Não foi possível atualizar o perfil.");
+      };
+
+    }
+
   };
 
   useEffect(() => {
@@ -55,7 +79,8 @@ function AuthProvider({ children }) {
     <AuthContext.Provider value={{ 
       signIn, 
       signOut,
-      user: data.user 
+      updateProfile,
+      user: data.user, 
     }}>
       {children}
     </AuthContext.Provider>

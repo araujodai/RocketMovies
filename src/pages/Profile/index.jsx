@@ -10,12 +10,23 @@ import { Button } from "../../components/Button";
 import { Container, Form, Avatar } from "./styles";
 
 export function Profile() {
-  const { user } = useAuth();
+  const { user, updateProfile } = useAuth();
 
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [password, setPassword] = useState();
   const [newPassword, setNewPassword] = useState();
+
+  async function handleUpdate() {
+    const user = {
+      name, 
+      email,
+      password: newPassword,
+      old_password: password,
+    };
+
+    await updateProfile({ user });
+  };
 
   return (
     <Container>
@@ -72,7 +83,10 @@ export function Profile() {
           onChange={e => setNewPassword(e.target.value)}
         />
 
-        <Button title="Salvar" disabled />
+        <Button title="Salvar" 
+          // disabled 
+          onClick={handleUpdate}
+        />
       </Form>
 
     </Container>
