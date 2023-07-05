@@ -1,23 +1,43 @@
-import { Input } from "../Input";
 import { useAuth } from "../../hooks/auth";
+import { Input } from "../Input";
 
 import { api } from "../../services/api";
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
-import { Container, Profile, Search } from "./styles";
+import { Container, User, Profile} from "./styles";
 
-export function Header() {
+export function Header({ children }) {
   const { signOut, user } = useAuth();
 
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
   return (
     <Container>
-      <h2>RocketMovies</h2>
-      <Search>
-        <Input type="text" placeholder="Pesquisar pelo título" />
-      </Search>
-      <Profile to="/profile">
+      <h2>
+        RocketMovies
+      </h2>
+
+      {children}
+
+      <div>
+        <User>
+          <strong>
+            {user.name}
+          </strong>
+
+          <button type="button" onClick={signOut}>sair</button>
+        </User>
+
+        <Profile>
+          <img
+            src={avatarUrl}
+            alt="Foto de perfil do usuário"
+          />
+        </Profile>
+      </div>
+
+
+      {/* <Profile to="/profile">
         <div>
           <span>
             {user.name}
@@ -28,7 +48,7 @@ export function Header() {
           src={avatarUrl}
           alt="Foto de perfil do usuário"
         />
-      </Profile>
+      </Profile> */}
 
     </Container>
   );
