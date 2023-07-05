@@ -1,5 +1,4 @@
 import { useAuth } from "../../hooks/auth";
-import { Input } from "../Input";
 
 import { api } from "../../services/api";
 import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
@@ -35,21 +34,6 @@ export function Header({ children }) {
           />
         </Profile>
       </div>
-
-
-      {/* <Profile to="/profile">
-        <div>
-          <span>
-            {user.name}
-          </span>
-          <button type="button" onClick={signOut}>sair</button>
-        </div>
-        <img
-          src={avatarUrl}
-          alt="Foto de perfil do usuário"
-        />
-      </Profile> */}
-
     </Container>
   );
 };

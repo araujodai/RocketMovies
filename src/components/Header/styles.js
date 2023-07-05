@@ -27,37 +27,6 @@ export const Container = styled.header`
   }
 `;
 
-// export const Profile = styled(Link)`
-//   display: flex;
-//   align-items: center;
-//   gap: 0.9rem;
-
-//   > div {
-//     display: flex;
-//     flex-direction: column;
-//     align-items: end;
-
-//     font-size: 1.4rem;
-//     color: ${({ theme })=> theme.COLORS.WHITE_100};
-//     font-weight: 700;
-
-//     button {
-//       font-weight: 400;
-//       color: ${({ theme })=> theme.COLORS.GRAY_200};
-//       border: none;
-//       background: none;
-//       font-size: 1.4rem;
-//     }
-//   }
-
-//   > img {
-//     width: 6.4rem;
-//     height: 6.4rem;
-//     border-radius: 50%;
-//     border: 1px solid ${({ theme }) => theme.COLORS.BACKGROUND_600};
-//   }
-// `;
-
 export const User = styled.div`
   display: flex;
   flex-direction: column;
