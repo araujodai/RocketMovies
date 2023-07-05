@@ -48,7 +48,7 @@ export function New() {
     };
 
     if (tags.length === 0) {
-      return alert("Adicione ao menos um marcador para continuar. ");
+      return newTag ? alert("Você deixou um marcador pendente, clique no botão + para adicionar.") : alert("Adicione ao menos um marcador para continuar. ")
     };
 
     if (newTag) {

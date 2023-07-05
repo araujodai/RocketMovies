@@ -1,15 +1,41 @@
+import { useEffect, useState } from "react";
 import { FiPlus } from "react-icons/fi";
 
+import { api } from "../../services/api";
+
 import { Header } from "../../components/Header";
+import { Input } from "../../components/Input";
 import { ContentWrapper } from "../../components/ContentWrapper";
 import { Movie } from "../../components/Movie";
 
-import { Container, TitleWrapper, NewMovie } from "./styles";
+import { Container, TitleWrapper, NewMovie, Search } from "./styles";
 
 export function Home() {
+  const [search, setSearch] = useState("");
+  const [movieNotes, setMovieNotes] = useState([]);
+
+  useEffect(() => {
+    async function fetchMovieNotes() {
+      const response = await api.get(`/movies?title=${search}`);
+      setMovieNotes(response.data);
+    };
+
+    fetchMovieNotes()
+  }, [search]);
+
   return (
     <Container>
-      <Header />
+
+      <Header>
+        <Search>
+          <Input 
+            type="text" 
+            placeholder="Pesquisar pelo título" 
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+          />
+        </Search>
+      </Header>
 
       <main>
         <TitleWrapper>
@@ -22,46 +48,16 @@ export function Home() {
         </TitleWrapper>
 
         <ContentWrapper>
-
-          <Movie data={{
-            title: "Interestellar",
-            description: `
-            Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se comunicar com ela. Pai e filha descobrem que o "fantasma" é uma inteligência desconhecida.
-            `,
-            tags: [
-              { id: "1", name: "scifi" },
-              { id: "2", name: "drama" },
-              { id: "3", name: "aventura" }
-            ]
-          }} />
-
-          <Movie data={{
-            title: "Interestellar",
-            description: `
-            Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se comunicar com ela. Pai e filha descobrem que o "fantasma" é uma inteligência desconhecida.
-            `,
-            tags: [
-              { id: "1", name: "scifi" },
-              { id: "2", name: "drama" },
-              { id: "3", name: "aventura" }
-            ]
-          }} />
-
-          <Movie data={{
-            title: "Interestellar",
-            description: `
-            Pragas nas colheitas fizeram a civilização humana regredir para uma sociedade agrária em futuro de data desconhecida. Cooper, ex-piloto da NASA, tem uma fazenda com sua família. Murphy, a filha de dez anos de Cooper, acredita que seu quarto está assombrado por um fantasma que tenta se comunicar com ela. Pai e filha descobrem que o "fantasma" é uma inteligência desconhecida.
-            `,
-            tags: [
-              { id: "1", name: "scifi" },
-              { id: "2", name: "drama" },
-              { id: "3", name: "aventura" }
-            ]
-          }} />
-
+          {
+            movieNotes.map(note => (
+              <Movie 
+                key={String(note.id)}
+                data={note} 
+              />
+            ))     
+          }
         </ContentWrapper>
       </main>
     </Container>
   );
 };
-

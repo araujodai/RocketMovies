@@ -13,6 +13,8 @@ export const Container = styled.div`
 
   > main {
     grid-area: main;
+    max-width: 1200px;
+    justify-self: center;
 
     display: grid;
     grid-template-rows: 4.8rem auto;
@@ -60,4 +62,15 @@ export const NewMovie = styled(Link)`
   display: flex;
   align-items: center;
   gap: 0.8rem;
+`;
+
+export const Search = styled.div`
+  /* max-width: 63rem;
+  flex-grow: 1; */
+  width: 50%;
+  /* font-size: 1.4rem; */
+
+  /* > input {
+    font-size: 1.4rem;
+  } */
 `;
