@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FiPlus } from "react-icons/fi";
 
 import { api } from "../../services/api";
@@ -13,6 +14,12 @@ import { Container, TitleWrapper, NewMovie, Search } from "./styles";
 export function Home() {
   const [search, setSearch] = useState("");
   const [movieNotes, setMovieNotes] = useState([]);
+
+  const navigate = useNavigate();
+
+  function handleDetails(id) {
+    navigate(`/details/${id}`);
+  };
 
   useEffect(() => {
     async function fetchMovieNotes() {
@@ -53,6 +60,7 @@ export function Home() {
               <Movie 
                 key={String(note.id)}
                 data={note} 
+                onClick={() => handleDetails(note.id)}
               />
             ))     
           }
