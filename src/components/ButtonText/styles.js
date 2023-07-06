@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-import { Link } from "react-router-dom";
-
-export const Container = styled(Link)`
+export const Container = styled.button`
   color: ${({ theme }) => theme.COLORS.PRIMARY_COLOR};
   font-size: 1.6rem;
 
@@ -10,4 +8,7 @@ export const Container = styled(Link)`
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
+
+  background: none;
+  border: none;
 `;

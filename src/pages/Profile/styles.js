@@ -13,8 +13,13 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
 
-    a {
+    button {
       color: ${({ theme }) => theme.COLORS.PRIMARY_COLOR};
+      font-size: 1.6rem;
+
+      background: none;
+      border: none;
+
       display: flex;
       align-items: center;
       gap: 0.8rem;

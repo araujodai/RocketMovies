@@ -13,8 +13,8 @@ export const Container = styled.div`
 
   > main {
     grid-area: main;
-    max-width: 1200px;
-    justify-self: center;
+    /* max-width: 1200px;
+    justify-self: center; */
 
     display: grid;
     grid-template-rows: 4.8rem auto;

@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { FiArrowLeft } from "react-icons/fi";
 
-import { useNavigate } from "react-router-dom";
+import { api } from "../../services/api";
 
 import { Header } from "../../components/Header";
 import { ButtonText } from "../../components/ButtonText";
@@ -10,8 +11,6 @@ import { Input } from "../../components/Input";
 import { Textarea } from "../../components/Textarea";
 import { MovieItem } from "../../components/MovieItem";
 import { Button } from "../../components/Button";
-
-import { api } from "../../services/api";
 
 import { Container, Form, Section, ButtonDelete } from "./styles";
 
@@ -24,6 +23,10 @@ export function New() {
   const [newTag, setNewTag] = useState("");
 
   const navigate = useNavigate();
+
+  function handleBack() {
+    navigate(-1);
+  };
 
   function handleAddTag() {
     if (newTag == "") {
@@ -63,7 +66,7 @@ export function New() {
     });
 
     alert("Filme adicionado com sucesso!");
-    navigate("/");
+    navigate(-1);
   };
 
   return (
@@ -72,9 +75,9 @@ export function New() {
 
       <main>
         <ButtonText
-          to="/"
           title="Voltar"
           icon={FiArrowLeft}
+          onClick={handleBack}
         />
 
         <ContentWrapper>

@@ -20,7 +20,7 @@ export function Details() {
   const navigate = useNavigate();
 
   function handleBack() {
-    navigate("/");
+    navigate(-1);
   };
 
   useEffect(() => {
@@ -40,9 +40,9 @@ export function Details() {
         data &&
         <main>
           <ButtonText
-            to="/"
             title="Voltar"
             icon={FiArrowLeft}
+            onClick={handleBack}
           />
 
           <ContentWrapper>
