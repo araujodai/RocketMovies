@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     grid-area: ContentWrapper;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding-right: 1rem;
 
     ::-webkit-scrollbar {

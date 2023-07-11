@@ -17,18 +17,17 @@ export const Container = styled.div`
     justify-self: center; */
 
     display: grid;
-    grid-template-rows: 4.8rem auto;
-    grid-template-columns: auto minmax(33rem, 113.7rem) auto;
+    grid-template-columns: auto minmax(33rem, 117.7rem) auto;
+    grid-auto-rows: min-content auto;
     grid-template-areas: 
     ". TitleWrapper ."
     ". ContentWrapper .";
 
     overflow: hidden;
-    padding: 4.7rem 0 4rem 0;
+    padding: 4rem;
 
 
     > div:nth-child(2) {
-      margin-top: 3.7rem;
       display: flex;
       flex-direction: column;
       gap: 2.4rem;
@@ -42,6 +41,7 @@ export const TitleWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 3.7rem;
 
   h1 {
       font-size: 3.2rem;

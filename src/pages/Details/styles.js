@@ -14,7 +14,8 @@ export const Container = styled.div`
     grid-area: main;
 
     display: grid;
-    grid-template-columns: auto minmax(33rem, 113.7rem) auto;
+    grid-template-columns: auto minmax(33rem, 117.7rem) auto;
+    grid-auto-rows: min-content auto;
     grid-template-areas: 
     ". TitleWrapper ."
     ". ContentWrapper .";
@@ -22,21 +23,18 @@ export const Container = styled.div`
     overflow: hidden;
     padding-block: 4rem;
 
-    > a {
+    > button {
       grid-area: TitleWrapper;
       justify-self: start;
+      margin-bottom: 2.4rem;
     }
 
-    > div {
-      margin-top: 2.4rem;
-
-      .description {
+    > div > .description {
         grid-area: ContentWrapper;
 
         margin-top: 4rem;
         line-height: 21px;
         text-align: justify;
-      }
     }
   }
 `;
