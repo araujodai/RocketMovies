@@ -1,9 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { FiArrowLeft } from "react-icons/fi";
+import { FiArrowLeft, FiEdit } from "react-icons/fi";
 import { BiTime } from "react-icons/bi";
+import { format } from "date-fns";
 
 import { api } from "../../services/api";
+
+import { useAuth } from "../../hooks/auth";
+import avatarPlaceholder from "../../assets/avatar_placeholder.svg";
 
 import { Header } from "../../components/Header";
 import { ContentWrapper } from "../../components/ContentWrapper";
@@ -15,6 +19,9 @@ import { Container, HeaderContent, Tags } from "./styles";
 
 export function Details() {
   const [data, setData] = useState(null);
+  const { user } = useAuth();
+
+  const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
   const params = useParams();
   const navigate = useNavigate();
@@ -22,6 +29,10 @@ export function Details() {
   function handleBack() {
     navigate(-1);
   };
+
+  function handleEdit() {
+    navigate(`/details/${params.id}/edit`);
+  }
 
   useEffect(() => {
     async function fetchNote() {
@@ -39,11 +50,19 @@ export function Details() {
       {
         data &&
         <main>
-          <ButtonText
-            title="Voltar"
-            icon={FiArrowLeft}
-            onClick={handleBack}
-          />
+          <div>
+            <ButtonText
+              title="Voltar"
+              icon={FiArrowLeft}
+              onClick={handleBack}
+            />
+
+            <ButtonText
+              title="Editar"
+              icon={FiEdit}
+              onClick={handleEdit}
+            />
+          </div>
 
           <ContentWrapper>
             <HeaderContent>
@@ -51,18 +70,25 @@ export function Details() {
                 <h1>
                   {data.title}
                 </h1>
-                <Rating size={20} />
+                <Rating size={20} number={data.rating} />
               </div>
 
               <div className="subtitle">
                 <span className="user">
-                  <img src="https://github.com/araujodai.png" alt="Foto do usuário." />
-                  <p>Por Daiane Araújo</p>
+
+                  <img 
+                    src={avatarUrl} 
+                    alt
+                    ="Foto do usuário." 
+                  />
+                  <p>
+                    Por {user.name}
+                  </p>
                 </span>
 
                 <span className="createdAt">
                   <BiTime size={16} />
-                  <p>18/08/23 às 19:42</p>
+                  <p>{format(new Date(data.updated_at), "dd/MM/yy 'às' HH:mm")}</p>
                 </span>
               </div>
             </HeaderContent>
@@ -84,6 +110,7 @@ export function Details() {
             <p className="description">
               {data.description}
             </p>
+
           </ContentWrapper>
         </main>
       }

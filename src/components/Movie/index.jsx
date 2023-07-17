@@ -6,7 +6,10 @@ export function Movie({ data, ...rest }) {
   return (
     <Container {...rest} >
       <h1>{data.title}</h1>
-      <Rating size={12}/>
+      <Rating 
+        size={12}
+        number={data.rating}
+      />
 
       <p>{data.description}</p>
 

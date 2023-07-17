@@ -27,7 +27,7 @@ export function Home() {
       setMovieNotes(response.data);
     };
 
-    fetchMovieNotes()
+    fetchMovieNotes();
   }, [search]);
 
   return (

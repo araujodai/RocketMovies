@@ -23,9 +23,11 @@ export const Container = styled.div`
     overflow: hidden;
     padding-block: 4rem;
 
-    > button {
+    > div:nth-child(1) {
+      display: flex;
+      justify-content: space-between;
+      
       grid-area: TitleWrapper;
-      justify-self: start;
       margin-bottom: 2.4rem;
     }
 
