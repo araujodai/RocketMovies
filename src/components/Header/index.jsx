@@ -15,11 +15,15 @@ export function Header({ children }) {
     signOut();
   };
 
+  function handleGoToHome() {
+    navigate("/");
+  };
+
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
   return (
     <Container>
-      <h2>
+      <h2 onClick={handleGoToHome}>
         RocketMovies
       </h2>
 

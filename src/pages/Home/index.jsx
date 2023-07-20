@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FiPlus } from "react-icons/fi";
 
 import { api } from "../../services/api";
+import { useAuth } from "../../hooks/auth";
 
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
@@ -14,6 +15,7 @@ import { Container, TitleWrapper, NewMovie, Search } from "./styles";
 export function Home() {
   const [search, setSearch] = useState("");
   const [movieNotes, setMovieNotes] = useState([]);
+  const { signOut } = useAuth();
 
   const navigate = useNavigate();
 
@@ -23,8 +25,19 @@ export function Home() {
 
   useEffect(() => {
     async function fetchMovieNotes() {
-      const response = await api.get(`/movies?title=${search}`);
-      setMovieNotes(response.data);
+      try {
+        const response = await api.get(`/movies?title=${search}`);
+        setMovieNotes(response.data);
+
+      } catch (error) {
+        if (error.response) {
+          alert(error.response.data.message);
+
+        } else {
+          alert("Sessão expirada, realize login novamente.");
+          signOut();
+        }
+      }
     };
 
     fetchMovieNotes();

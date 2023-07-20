@@ -20,6 +20,7 @@ import { Container, HeaderContent, Tags } from "./styles";
 export function Details() {
   const [data, setData] = useState(null);
   const { user } = useAuth();
+  const [formattedHours, setFormattedHours] = useState("");
 
   const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
@@ -32,12 +33,22 @@ export function Details() {
 
   function handleEdit() {
     navigate(`/details/${params.id}/edit`);
-  }
+  };
 
+  async function formatTime(datetime) {
+    const dateAndTime = await datetime.split(" ");
+    const time = dateAndTime[1];
+
+    const hours = time.split(":")[0]
+
+    setFormattedHours(hours - 3);
+  };
+  
   useEffect(() => {
     async function fetchNote() {
       const response = await api.get(`/movies/${params.id}`)
       setData(response.data);
+      formatTime(response.data.updated_at)
     };
 
     fetchNote();
@@ -88,7 +99,14 @@ export function Details() {
 
                 <span className="createdAt">
                   <BiTime size={16} />
-                  <p>{format(new Date(data.updated_at), "dd/MM/yy 'às' HH:mm")}</p>
+                  <p>
+                    {
+                      format(
+                        new Date(data.updated_at), 
+                        `dd/MM/yy 'às' ${formattedHours}:mm`
+                      )
+                    }
+                  </p>
                 </span>
               </div>
             </HeaderContent>

@@ -124,9 +124,13 @@ export function New() {
             </Section>
 
             <div>
-              <ButtonDelete title="Excluir nota" />
+              <ButtonDelete 
+                title="Descartar nota" 
+                onClick={handleBack}
+              />
+
               <Button 
-                title="Salvar alterações" 
+                title="Criar nota" 
                 onClick={handleNewMovieNote}
               />
             </div>

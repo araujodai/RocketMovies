@@ -72,6 +72,15 @@ export function Edit() {
     navigate(-2);
   };
 
+  async function handleRemoveMovieNote() {
+    const confirm = window.confirm("Você está prestes a remover essa nota, deseja prosseguir?");
+
+    if(confirm) {
+      await api.delete(`/movies/${params.id}`);
+      navigate(-2);
+    };
+  };
+
   useEffect(() => {
     async function fetchNote() {
       const response = await api.get(`/movies/${params.id}`)
@@ -146,9 +155,10 @@ export function Edit() {
             </Section>
 
             <div>
-              <ButtonDelete title="Excluir nota" onClick={() => {
-                console.log("Tags que já existem: ", tags)
-              }} />
+              <ButtonDelete 
+                title="Excluir nota" 
+                onClick={handleRemoveMovieNote} />
+
               <Button 
                 title="Salvar alterações" 
                 onClick={handleUpdateMovieNote}

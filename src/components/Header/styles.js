@@ -18,6 +18,7 @@ export const Container = styled.header`
   > h2 {
     color: ${({ theme })=> theme.COLORS.PRIMARY_COLOR};
     font-size: 2.4rem;
+    cursor: pointer;
   }
 
   > div {
